@@ -1,0 +1,31 @@
+<input class="form-control me-sm-2 mb-4" type="search" placeholder="Search" [(ngModel)]="searchP">
+<div class="container">
+  <div class="row">
+    <ng-container *ngFor="let product of filteredProducts, let i = index">
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+        <div class="card text-white bg-secondary h-100">
+          <div class="card-header">{{product.title}}</div>
+          <div class="card-body">
+            <h4 class="card-title">{{product.price}}</h4>
+            <p class="card-text">Likes :{{product.like}}</p>
+            <p class="card-text">quantity :{{product.quantity}}</p>
+            <button type="button" class="btn btn-success" [disabled]="product.quantity==0" (click)="Buy(i)">Buy</button>
+            <button type="button" class="btn btn-danger" (click)="Like(i)">Like</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<ng-container *ngIf="filteredProducts.length === 0">
+  <ng-template #NotFound>
+    <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+      <div class="card-header">Info</div>
+      <div class="card-body">
+        <p class="card-text">Product doesn't exist</p>
+      </div>
+    </div>
+  </ng-template>
+  <ng-container [ngTemplateOutlet]="NotFound"></ng-container>
+</ng-container>

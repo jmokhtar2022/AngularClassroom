@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { OffresEmploiComponent } from './offres-emploi/offres-emploi.component';
 import { FormsModule } from '@angular/forms';
 import { ArticlesComponent } from './articles/articles.component';
+import { ProductsComponent } from './products/products.component';
 @NgModule({
   declarations: [
     AppComponent,
     OffresEmploiComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
