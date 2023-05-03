@@ -1,0 +1,48 @@
+<form #addForm="ngForm" (ngSubmit)="Save(addForm)">
+ 
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input type="text" class="form-control" id="nom" name="nom" ngModel required #t="ngModel" [class.is-invalid]="t.invalid && t.touched" >
+        <span style="color:red" *ngIf="t?.errors?.['required'] && t.touched"> Name is Required</span>
+    </div>
+  
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" ngModel required #e="ngModel" [class.is-invalid]="e.invalid && e.touched" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+      <span style="color:red" *ngIf="e?.errors?.['required'] && e.touched">Email is Required</span>
+      <span style="color:red" *ngIf="e?.errors?.['pattern'] && e.touched">Please enter a valid email address</span>
+    </div>
+    
+    
+  
+      <div class="form-group">
+        <label for="type">Type de Carte</label>
+        <input type="text" class="form-control" id="type" name="type" ngModel required #c="ngModel" [class.is-invalid]="c.invalid && c.touched" >
+          <span style="color:red" *ngIf="c?.errors?.['required'] && c.touched"> Type is Required</span>
+      </div>
+  
+      <div class="form-group">
+        <label for="num">Numero</label>
+        <input type="text" class="form-control" id="num" name="num" ngModel required #n="ngModel" [class.is-invalid]="n.invalid && n.touched" 
+          pattern="[0-9]{16}">
+        <span style="color:red" *ngIf="n?.errors?.['required'] && n.touched"> Number is Required</span>
+        <span style="color:red" *ngIf="n?.errors?.['pattern'] && n.touched">Please enter a 16-digit number</span>
+      </div>
+      
+  
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" id="date" name="date" ngModel required #d="ngModel" [class.is-invalid]="d.invalid && d.touched" >
+          <span style="color:red" *ngIf="d?.errors?.['required'] && d.touched"> Date is Required</span>
+      </div>
+  
+  
+      <div class="form-group" *ngIf="addForm.valid">
+        <label for="code">Code</label>
+        <input type="text" class="form-control" id="code" name="code" ngModel required #co="ngModel" [class.is-invalid]="co.invalid && co.touched" >
+          <span style="color:red" *ngIf="co?.errors?.['required'] && co.touched"> Code is Required</span>
+      </div>
+  
+    
+      <button type="submit" class="btn btn-primary" [disabled]="!addForm.valid">Submit</button>
+    </form>

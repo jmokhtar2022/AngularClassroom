@@ -7,12 +7,14 @@ import { OffresEmploiComponent } from './offres-emploi/offres-emploi.component';
 import { FormsModule } from '@angular/forms';
 import { ArticlesComponent } from './articles/articles.component';
 import { ProductsComponent } from './products/products.component';
+import { TemplateDrivenFormComponentComponent } from './template-driven-form-component/template-driven-form-component.component';
 @NgModule({
   declarations: [
     AppComponent,
     OffresEmploiComponent,
     ArticlesComponent,
-    ProductsComponent
+    ProductsComponent,
+    TemplateDrivenFormComponentComponent
   ],
   imports: [
     BrowserModule,
